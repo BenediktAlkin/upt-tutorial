@@ -14,7 +14,7 @@ class SupernodePooling(nn.Module):
             input_dim,
             hidden_dim,
             ndim,
-            init_weights="truncnormal",
+            init_weights="torch",
     ):
         super().__init__()
         self.radius = radius

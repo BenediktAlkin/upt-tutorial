@@ -45,7 +45,6 @@ class EncoderSupernodes(nn.Module):
             input_dim=input_dim,
             hidden_dim=gnn_dim,
             ndim=ndim,
-            init_weights=init_weights,
         )
 
         # blocks
