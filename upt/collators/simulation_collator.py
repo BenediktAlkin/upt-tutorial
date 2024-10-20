@@ -54,7 +54,11 @@ class SimulationCollator:
         for i in range(len(batch)):
             feat = batch[i]["output_feat"]
             output_feat.append(feat)
-        collated_batch["output_feat"] = torch.concat(output_feat)
+        # output_feat is either list of tensors (for training) or list of list of tensors (for rollout)
+        if torch.is_tensor(output_feat[0]):
+            collated_batch["output_feat"] = torch.concat(output_feat)
+        else:
+            collated_batch["output_feat"] = output_feat
 
         # collate dense tensors
         collated_batch["output_pos"] = default_collate([batch[i]["output_pos"] for i in range(len(batch))])

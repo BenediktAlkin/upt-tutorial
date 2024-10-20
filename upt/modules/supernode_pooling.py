@@ -24,17 +24,9 @@ class SupernodePooling(nn.Module):
         self.ndim = ndim
         self.init_weights = init_weights
 
-        self.input_proj = nn.Sequential(
-            LinearProjection(input_dim, hidden_dim, init_weights=init_weights),
-            nn.GELU(),
-            LinearProjection(hidden_dim, hidden_dim, init_weights=init_weights),
-            nn.GELU(),
-            LinearProjection(hidden_dim, hidden_dim, init_weights=init_weights),
-        )
+        self.input_proj = LinearProjection(input_dim, hidden_dim, init_weights=init_weights)
         self.pos_embed = ContinuousSincosEmbed(dim=hidden_dim, ndim=ndim)
         self.message = nn.Sequential(
-            LinearProjection(hidden_dim * 2, hidden_dim * 2, init_weights=init_weights),
-            nn.GELU(),
             LinearProjection(hidden_dim * 2, hidden_dim, init_weights=init_weights),
             nn.GELU(),
             LinearProjection(hidden_dim, hidden_dim, init_weights=init_weights),

@@ -5,14 +5,16 @@ from torch import nn
 class ConditionerTimestep(nn.Module):
     def __init__(self, dim, num_timesteps):
         super().__init__()
+        cond_dim = dim * 4
         self.num_timesteps = num_timesteps
         self.dim = dim
+        self.cond_dim = cond_dim
         self.register_buffer(
             "timestep_embed",
             get_sincos_1d_from_seqlen(seqlen=num_timesteps, dim=dim),
         )
         self.mlp = nn.Sequential(
-            nn.Linear(dim, dim),
+            nn.Linear(dim, cond_dim),
             nn.SiLU(),
         )
 
