@@ -20,6 +20,7 @@ The following notebooks should provide a tutorial to get familiar with universal
 - [CIFAR10 image classification](https://github.com/BenediktAlkin/upt-tutorial/blob/main/2_image_classification.ipynb): start from a basic example (regular grid input, scalar output, easy encoder, simple classification decoder)
 - [CIFAR10 autoencoder](https://github.com/BenediktAlkin/upt-tutorial/blob/main/3_image_autoencoder.ipynb): introduce the perceiver decoder to query at arbitrary positions
 - [SparseCIFAR10 image classification](https://github.com/BenediktAlkin/upt-tutorial/blob/main/4_pointcloud_classification.ipynb): introduce handling point clouds via sparse tensors and supernode message passing
+- [SparseCIFAR10 image autoencoder](https://github.com/BenediktAlkin/upt-tutorial/blob/main/5_pointcloud_autoencoder.ipynb): combine the handling of input point clouds with decoding arbitrary many positions
 - [Simple Transient Flow](https://github.com/BenediktAlkin/upt-tutorial/blob/main/6_transient_flow_cfd.ipynb): put everything together to train UPT on a single trajectory of our transient flow simulations
 
 
