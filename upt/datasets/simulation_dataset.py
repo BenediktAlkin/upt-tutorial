@@ -32,6 +32,11 @@ class SimulationDataset(Dataset):
                 if fname.endswith("_mesh.th")
             ],
         )
+        # these values were mistakenly copied from the "v1-10000sims" dataset version of the original codebase, which was a preliminary dataset that we generated during development.
+        # the correct values would be from the "v3-10000sims" dataset version which would be the following (we keep the old values as its not too important for the tutorial).
+        # self.mean = torch.tensor([0.03648518770933151, 1.927249059008318e-06, 0.000112384237581864])
+        # self.std = torch.tensor([0.005249467678368092, 0.003499444341287017, 0.0002817418717313558])
+        # For more details on normalization, see the UPT paper, Appendix D.5.
         self.mean = torch.tensor([0.0152587890625, -1.7881393432617188e-06, 0.0003612041473388672])
         self.std = torch.tensor([0.0233612060546875, 0.0184173583984375, 0.0019378662109375])
 
